@@ -2,6 +2,27 @@
 
 *A machine learning workflow for ADHD classification using neuroimaging, psychometric, and demographic data*
 
+## Visual highlights
+
+<table>
+  <tr>
+    <td width="58%" valign="top">
+      <a href="#model-comparison">
+        <img src="docs/images/model-comparison-heatmap.png" alt="Heatmap comparing recorded held-out metrics across four tuned models">
+      </a>
+      <br>
+      <sub><strong>Recorded model comparison.</strong> Held-out accuracy, precision, recall, and F1 across the four tuned classifiers.</sub>
+    </td>
+    <td width="42%" valign="top">
+      <a href="#shap-based-model-interpretation">
+        <img src="docs/images/gradient-boosting-shap-summary.png" alt="SHAP summary for the tuned Gradient Boosting model">
+      </a>
+      <br>
+      <sub><strong>Exploratory model interpretation.</strong> SHAP feature contributions for Gradient Boosting describe model behavior, not causation.</sub>
+    </td>
+  </tr>
+</table>
+
 ## Overview
 
 Developed a Data Science and Machine Learning solution for ADHD classification using neuroimaging and demographic data, focusing on model evaluation, hyperparameter optimization, cross-validation, and fairness analysis.
@@ -130,10 +151,6 @@ These results must be read alongside the class imbalance and lower class-0 recal
 
 The recorded held-out comparison shows a narrow range across all four tuned models. Recall for class 1 is consistently high, but this does not resolve the lower recall for class 0 or establish performance outside the recorded dataset.
 
-![Heatmap comparing the recorded held-out metrics for four tuned models](docs/images/model-comparison-heatmap.png)
-
-*The heatmap compares recorded held-out accuracy, precision, recall, and F1. Cross-validation F1 appears separately in the results table.*
-
 ### Gradient Boosting held-out evaluation
 
 ![Recorded Gradient Boosting confusion matrix](docs/images/gradient-boosting-confusion-matrix.png)
@@ -161,10 +178,6 @@ Confidence intervals and significance tests were not calculated. Equalized odds,
 ## SHAP-based model interpretation
 
 SHAP is used for exploratory feature attribution analysis. It explains associations and contributions within the trained model; it does not establish biological or clinical causation. The attributions depend on the trained model, the recorded dataset, and the selected feature representation.
-
-![Existing SHAP summary for the tuned Gradient Boosting model](docs/images/gradient-boosting-shap-summary.png)
-
-*The SHAP summary shows how recorded feature values contributed to the tuned Gradient Boosting model output. It describes model behavior, not causes of ADHD.*
 
 ## Selected project figures
 
