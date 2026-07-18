@@ -62,7 +62,7 @@ The recorded workflow predicts the binary `ADHD_Outcome` label from prepared psy
 
 ## Dataset composition
 
-| Item | Recorded value |
+| Dataset item | Value |
 |---|---:|
 | Unique participants | 1,213 |
 | Class 0 | 382 |
@@ -87,24 +87,26 @@ Class 1 is the majority class. Model optimization focused on positive-class F1, 
 
 ## Feature groups
 
-| Feature group | Recorded processing | Final contribution |
+| Feature group | Processing | Output |
 |---|---|---:|
-| Psychometric and questionnaire | Iterative imputation and mutual-information selection | 10 features |
-| Demographic and collection context | Categorical handling and mutual-information selection | 5 features |
+| Psychometric and questionnaire | Iterative imputation + mutual-information selection | 10 features |
+| Demographic and collection context | Categorical handling + mutual-information selection | 5 features |
 | Functional connectivity | RBF KernelPCA | 30 components |
 
 The psychometric predictors include symptom and questionnaire measures that may overlap conceptually with ADHD evaluation. Demographic and collection-context fields may also encode site-related or demographic proxies.
 
 ## Train and held-out split
 
-| Split property | Recorded value |
+| Split detail | Value |
 |---|---:|
 | Training rows | 970 |
 | Held-out rows | 243 |
 | Split ratio | 80/20 |
 | Random state | 42 |
-| Stratification | Outcome and binary sex combinations |
+| Stratification | Outcome × binary sex |
 | Participant-ID overlap | 0 |
+
+Stratification used combinations of the outcome and recorded binary sex fields.
 
 The held-out set was reused for evaluation of multiple tuned models, model comparison, subgroup analysis, and model interpretation. It should therefore be treated as an experimental held-out set rather than an untouched external evaluation.
 
@@ -129,7 +131,9 @@ GridSearchCV used five folds and positive-class F1 as its scoring metric. In the
 
 ## Recorded evaluation results
 
-| Model | Best CV F1 | Held-out accuracy | Precision | Recall | F1 |
+`CV F1` is the best F1 recorded by GridSearchCV. Accuracy, Precision, Recall, and F1 are held-out metrics.
+
+| Model | CV F1 | Accuracy | Precision | Recall | F1 |
 |---|---:|---:|---:|---:|---:|
 | Logistic Regression | 0.8513 | 0.802 | 0.805 | 0.940 | 0.867 |
 | Random Forest | 0.8494 | 0.807 | 0.803 | 0.952 | 0.871 |
