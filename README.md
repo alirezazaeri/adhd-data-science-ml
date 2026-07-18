@@ -4,24 +4,17 @@
 
 ## Visual highlights
 
-<table>
-  <tr>
-    <td width="58%" valign="top">
-      <a href="#model-comparison">
-        <img src="docs/images/model-comparison-heatmap.png" alt="Heatmap comparing recorded held-out metrics across four tuned models">
-      </a>
-      <br>
-      <sub><strong>Recorded model comparison.</strong> Held-out accuracy, precision, recall, and F1 across the four tuned classifiers.</sub>
-    </td>
-    <td width="42%" valign="top">
-      <a href="#shap-based-model-interpretation">
-        <img src="docs/images/gradient-boosting-shap-summary.png" alt="SHAP summary for the tuned Gradient Boosting model">
-      </a>
-      <br>
-      <sub><strong>Exploratory model interpretation.</strong> SHAP feature contributions for Gradient Boosting describe model behavior, not causation.</sub>
-    </td>
-  </tr>
-</table>
+### Recorded model comparison
+
+![Recorded held-out model comparison](docs/images/model-comparison-heatmap.png)
+
+*Held-out accuracy, precision, recall, and F1 across the four tuned classifiers.*
+
+### Exploratory model interpretation
+
+![Gradient Boosting SHAP summary](docs/images/gradient-boosting-shap-summary.png)
+
+*SHAP feature contributions describe model behavior within the recorded experiment and do not establish causation.*
 
 ## Overview
 
