@@ -1,0 +1,76 @@
+# Operating system and notebook state
+.DS_Store
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Python caches and local tooling
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# Local environments
+.venv/
+venv/
+env/
+ENV/
+.conda/
+
+# Credentials and local configuration
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Participant-level and derived datasets
+data/*
+processed_data/*
+final_data/*
+
+!data/.gitkeep
+!processed_data/.gitkeep
+!final_data/.gitkeep
+
+!data/README.md
+!processed_data/README.md
+!final_data/README.md
+
+# Generated model and training state
+notebooks/catboost_info/
+catboost_info/
+*.log
+*.out
+*.tfevents*
+*.tsv
+tmp/
+temp/
+*.tmp
+
+# Editors and local metadata
+.vscode/
+.idea/
+*.swp
+*~
+
+# Archives and backups
+*.zip
+*.tar
+*.tar.gz
+*.7z
+backups/
+*.bak
+*.backup
+
+# Private and local-only reports
+Codex_Reports/
+reports/private/
+private_reports/
+prompts/
+tasks/
+
+# Legacy local documentation
+README.txt
