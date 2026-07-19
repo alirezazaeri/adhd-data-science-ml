@@ -21,17 +21,20 @@ TABLE_ROW = re.compile(
 )
 
 
-def load_manifest() -> dict[str, str]:
+def load_manifest(
+    manifest: Path = MANIFEST,
+    expected_notebooks: set[str] = EXPECTED_NOTEBOOKS,
+) -> dict[str, str]:
     """Read the notebook hash table from the public integrity document."""
     entries: dict[str, str] = {}
-    for line in MANIFEST.read_text(encoding="utf-8").splitlines():
+    for line in manifest.read_text(encoding="utf-8").splitlines():
         match = TABLE_ROW.match(line)
         if match:
             entries[match.group("path")] = match.group("digest")
 
-    if set(entries) != EXPECTED_NOTEBOOKS:
-        missing = sorted(EXPECTED_NOTEBOOKS - set(entries))
-        extra = sorted(set(entries) - EXPECTED_NOTEBOOKS)
+    if set(entries) != expected_notebooks:
+        missing = sorted(expected_notebooks - set(entries))
+        extra = sorted(set(entries) - expected_notebooks)
         raise ValueError(f"Notebook manifest mismatch; missing={missing}, extra={extra}")
     return entries
 
@@ -45,9 +48,13 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def validate_notebook(relative_path: str, expected_hash: str) -> None:
+def validate_notebook(
+    relative_path: str,
+    expected_hash: str,
+    root: Path = ROOT,
+) -> None:
     """Check that one notebook is valid JSON and has the approved digest."""
-    path = ROOT / relative_path
+    path = root / relative_path
     with path.open("r", encoding="utf-8") as handle:
         json.load(handle)
 
