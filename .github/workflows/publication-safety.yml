@@ -1,0 +1,48 @@
+name: Publication safety
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-public-tree:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check patch whitespace
+        run: git diff --check
+
+      - name: Check standalone Python syntax
+        run: python -m compileall -q scripts
+
+      - name: Validate notebook JSON and approved hashes
+        run: python scripts/validate_notebook_integrity.py
+
+      - name: Validate public repository boundaries and links
+        run: python scripts/validate_public_repository.py
+
+      - name: Validate notebook JSON independently
+        run: |
+          python -m json.tool notebooks/1_data_eploration.ipynb >/dev/null
+          python -m json.tool notebooks/2_modeling.ipynb >/dev/null
+
+      - name: Show approved tracked data-directory files
+        run: git ls-files data processed_data final_data
+
+      - name: Validate GitHub YAML syntax
+        run: >-
+          ruby -e 'require "yaml"; ARGV.each { |path| YAML.load_file(path, aliases: true) }'
+          .github/workflows/publication-safety.yml
+          .github/ISSUE_TEMPLATE/bug_report.yml
+          .github/ISSUE_TEMPLATE/documentation.yml
