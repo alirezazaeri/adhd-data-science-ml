@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="650" viewBox="0 0 1400 650" role="img" aria-labelledby="title desc">
+  <title id="title">Recorded F1 comparison across four classifiers</title>
+  <desc id="desc">A focused-scale dot plot compares CV F1 and held-out F1 for Logistic Regression, Random Forest, Gradient Boosting, and CatBoost. Gradient Boosting has the highest held-out F1, 0.877, while CatBoost has the highest CV F1, 0.8532.</desc>
+  <rect width="1400" height="650" fill="#ffffff"/>
+  <text x="70" y="62" fill="#172033" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Recorded F1 comparison across four classifiers</text>
+  <text x="70" y="95" fill="#586174" font-family="Arial, Helvetica, sans-serif" font-size="17">Focused scale: 0.84–0.88 · CV may be optimistic · held-out split was reused</text>
+
+  <g stroke="#d9dee8" stroke-width="1">
+    <line x1="390" y1="145" x2="390" y2="510"/>
+    <line x1="615" y1="145" x2="615" y2="510"/>
+    <line x1="840" y1="145" x2="840" y2="510"/>
+    <line x1="1065" y1="145" x2="1065" y2="510"/>
+    <line x1="1290" y1="145" x2="1290" y2="510"/>
+  </g>
+  <g fill="#6b7280" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle">
+    <text x="390" y="535">0.84</text>
+    <text x="615" y="535">0.85</text>
+    <text x="840" y="535">0.86</text>
+    <text x="1065" y="535">0.87</text>
+    <text x="1290" y="535">0.88</text>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="70" y="196" fill="#172033" font-size="18" font-weight="700">Logistic Regression</text>
+    <line x1="644" y1="190" x2="998" y2="190" stroke="#aab2bf" stroke-width="3"/>
+    <circle cx="644" cy="190" r="10" fill="#d39b2a" stroke="#7c5608" stroke-width="2"/>
+    <rect x="989" y="181" width="18" height="18" fill="#2f75a8" stroke="#174a70" stroke-width="2"/>
+    <text x="626" y="168" text-anchor="end" fill="#7c5608" font-size="14" font-weight="700">0.8513</text>
+    <text x="1018" y="168" fill="#174a70" font-size="14" font-weight="700">0.867</text>
+
+    <text x="70" y="286" fill="#172033" font-size="18" font-weight="700">Random Forest</text>
+    <line x1="602" y1="280" x2="1088" y2="280" stroke="#aab2bf" stroke-width="3"/>
+    <circle cx="602" cy="280" r="10" fill="#d39b2a" stroke="#7c5608" stroke-width="2"/>
+    <rect x="1079" y="271" width="18" height="18" fill="#2f75a8" stroke="#174a70" stroke-width="2"/>
+    <text x="584" y="258" text-anchor="end" fill="#7c5608" font-size="14" font-weight="700">0.8494</text>
+    <text x="1108" y="258" fill="#174a70" font-size="14" font-weight="700">0.871</text>
+
+    <text x="70" y="376" fill="#172033" font-size="18" font-weight="700">Gradient Boosting</text>
+    <line x1="647" y1="370" x2="1223" y2="370" stroke="#aab2bf" stroke-width="3"/>
+    <circle cx="647" cy="370" r="10" fill="#d39b2a" stroke="#7c5608" stroke-width="2"/>
+    <rect x="1214" y="361" width="18" height="18" fill="#2f75a8" stroke="#174a70" stroke-width="2"/>
+    <text x="629" y="348" text-anchor="end" fill="#7c5608" font-size="14" font-weight="700">0.8514</text>
+    <text x="1243" y="348" fill="#174a70" font-size="14" font-weight="700">0.877</text>
+
+    <text x="70" y="466" fill="#172033" font-size="18" font-weight="700">CatBoost</text>
+    <line x1="687" y1="460" x2="1155" y2="460" stroke="#aab2bf" stroke-width="3"/>
+    <circle cx="687" cy="460" r="10" fill="#d39b2a" stroke="#7c5608" stroke-width="2"/>
+    <rect x="1146" y="451" width="18" height="18" fill="#2f75a8" stroke="#174a70" stroke-width="2"/>
+    <text x="669" y="438" text-anchor="end" fill="#7c5608" font-size="14" font-weight="700">0.8532</text>
+    <text x="1175" y="438" fill="#174a70" font-size="14" font-weight="700">0.874</text>
+
+    <circle cx="70" cy="574" r="9" fill="#d39b2a" stroke="#7c5608" stroke-width="2"/>
+    <text x="90" y="580" fill="#465166" font-size="15">Best five-fold GridSearchCV F1</text>
+    <rect x="390" y="565" width="18" height="18" fill="#2f75a8" stroke="#174a70" stroke-width="2"/>
+    <text x="420" y="580" fill="#465166" font-size="15">Experimental held-out F1</text>
+  </g>
+
+  <text x="70" y="625" fill="#586174" font-family="Arial, Helvetica, sans-serif" font-size="14">No confidence intervals or significance tests were performed; narrow differences should not be overinterpreted.</text>
+</svg>

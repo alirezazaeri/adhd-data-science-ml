@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="610" viewBox="0 0 1400 610" role="img" aria-labelledby="title desc">
+  <title id="title">Recorded preprocessing and evaluation pipeline</title>
+  <desc id="desc">A six-stage diagram moves from local WiDS files through participant splitting, three training-fitted feature branches, a 45-predictor merge, four-model grid search, and reused held-out evaluation.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#657083"/>
+    </marker>
+  </defs>
+  <rect width="1400" height="610" fill="#ffffff"/>
+  <text x="60" y="58" fill="#172033" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Recorded preprocessing and evaluation pipeline</text>
+  <text x="60" y="90" fill="#586174" font-family="Arial, Helvetica, sans-serif" font-size="17">Aggregate workflow retained in the notebooks · transformations were not refitted inside each CV fold</text>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="60" y="135" width="205" height="112" rx="12" fill="#eef5fa" stroke="#2f75a8" stroke-width="2"/>
+    <text x="162.5" y="168" text-anchor="middle" fill="#172033" font-size="19" font-weight="700">Local WiDS files</text>
+    <text x="162.5" y="198" text-anchor="middle" fill="#465166" font-size="15">Connectome · labels</text>
+    <text x="162.5" y="222" text-anchor="middle" fill="#465166" font-size="15">Metadata A · Metadata B</text>
+
+    <line x1="265" y1="191" x2="318" y2="191" stroke="#657083" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <rect x="320" y="135" width="205" height="112" rx="12" fill="#fff8e5" stroke="#b98920" stroke-width="2"/>
+    <text x="422.5" y="168" text-anchor="middle" fill="#172033" font-size="19" font-weight="700">Participant split</text>
+    <text x="422.5" y="198" text-anchor="middle" fill="#465166" font-size="15">970 train · 243 held-out</text>
+    <text x="422.5" y="222" text-anchor="middle" fill="#465166" font-size="15">Outcome × sex · seed 42</text>
+
+    <line x1="525" y1="191" x2="578" y2="191" stroke="#657083" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <rect x="580" y="115" width="270" height="260" rx="12" fill="#f7f8fb" stroke="#697386" stroke-width="2"/>
+    <text x="715" y="150" text-anchor="middle" fill="#172033" font-size="19" font-weight="700">Training-fitted preparation</text>
+    <rect x="605" y="170" width="220" height="50" rx="8" fill="#eaf3f9" stroke="#2f75a8"/>
+    <text x="715" y="192" text-anchor="middle" fill="#172033" font-size="15" font-weight="700">Metadata A</text>
+    <text x="715" y="211" text-anchor="middle" fill="#465166" font-size="13">Imputation + MI → 10</text>
+    <rect x="605" y="235" width="220" height="50" rx="8" fill="#fff4da" stroke="#b98920"/>
+    <text x="715" y="257" text-anchor="middle" fill="#172033" font-size="15" font-weight="700">Metadata B</text>
+    <text x="715" y="276" text-anchor="middle" fill="#465166" font-size="13">Encoding + MI → 5</text>
+    <rect x="605" y="300" width="220" height="50" rx="8" fill="#f0f3e7" stroke="#768545"/>
+    <text x="715" y="322" text-anchor="middle" fill="#172033" font-size="15" font-weight="700">Connectome</text>
+    <text x="715" y="341" text-anchor="middle" fill="#465166" font-size="13">RBF Kernel PCA → 30</text>
+
+    <line x1="850" y1="245" x2="903" y2="245" stroke="#657083" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <rect x="905" y="175" width="190" height="140" rx="12" fill="#eef5fa" stroke="#2f75a8" stroke-width="2"/>
+    <text x="1000" y="211" text-anchor="middle" fill="#172033" font-size="19" font-weight="700">Final merge</text>
+    <text x="1000" y="244" text-anchor="middle" fill="#465166" font-size="16">45 predictors</text>
+    <text x="1000" y="272" text-anchor="middle" fill="#465166" font-size="14">ID, outcome and sex</text>
+    <text x="1000" y="293" text-anchor="middle" fill="#465166" font-size="14">excluded from fitting</text>
+
+    <line x1="1095" y1="245" x2="1148" y2="245" stroke="#657083" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <rect x="1150" y="135" width="190" height="220" rx="12" fill="#fff8e5" stroke="#b98920" stroke-width="2"/>
+    <text x="1245" y="169" text-anchor="middle" fill="#172033" font-size="19" font-weight="700">Model tuning</text>
+    <text x="1245" y="200" text-anchor="middle" fill="#465166" font-size="14">5-fold GridSearchCV</text>
+    <text x="1245" y="224" text-anchor="middle" fill="#465166" font-size="14">positive-class F1</text>
+    <text x="1245" y="258" text-anchor="middle" fill="#465166" font-size="14">Logistic Regression</text>
+    <text x="1245" y="281" text-anchor="middle" fill="#465166" font-size="14">Random Forest</text>
+    <text x="1245" y="304" text-anchor="middle" fill="#465166" font-size="14">Gradient Boosting</text>
+    <text x="1245" y="327" text-anchor="middle" fill="#465166" font-size="14">CatBoost</text>
+
+    <line x1="1245" y1="355" x2="1245" y2="407" stroke="#657083" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="1040" y="410" width="300" height="120" rx="12" fill="#f7f8fb" stroke="#697386" stroke-width="2"/>
+    <text x="1190" y="444" text-anchor="middle" fill="#172033" font-size="19" font-weight="700">Experimental held-out use</text>
+    <text x="1190" y="474" text-anchor="middle" fill="#465166" font-size="14">Comparison · model choice</text>
+    <text x="1190" y="497" text-anchor="middle" fill="#465166" font-size="14">subgroups · SHAP</text>
+    <text x="1190" y="519" text-anchor="middle" fill="#7c4f00" font-size="13" font-weight="700">Not an untouched external test set</text>
+  </g>
+
+  <rect x="60" y="425" width="880" height="105" rx="10" fill="#fff6e7" stroke="#d18b18" stroke-width="2"/>
+  <text x="88" y="460" fill="#704600" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Validation limitation</text>
+  <text x="88" y="490" fill="#704600" font-family="Arial, Helvetica, sans-serif" font-size="15">Preprocessing and feature selection were completed before the internal CV folds.</text>
+  <text x="88" y="515" fill="#704600" font-family="Arial, Helvetica, sans-serif" font-size="15">Recorded CV scores may be optimistic; no nested, external, site-held-out or clinical validation was performed.</text>
+  <text x="60" y="575" fill="#586174" font-family="Arial, Helvetica, sans-serif" font-size="14">Diagram uses verified aggregate workflow information only and does not reproduce participant-level data.</text>
+</svg>
