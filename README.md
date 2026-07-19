@@ -267,7 +267,4 @@ The MIT licence does not apply to WiDS Datathon 2025 data, Healthy Brain Network
 
 ## Contributors
 
-Developed by:
-
-- [Alireza Zaeri](https://github.com/alirezazaeri)
-- [Fatemeh Sabourinia](https://github.com/fatemehsabourinia)
+This project was developed by Alireza Zaeri and [Fatemeh Sabourinia](https://github.com/fatemehsabourinia).

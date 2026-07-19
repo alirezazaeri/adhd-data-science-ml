@@ -70,7 +70,7 @@ Gradient Boosting has the strongest recorded held-out F1 (0.877). CatBoost has t
 ## Intended uses
 
 - Review of an historical experimental data-science workflow.
-- Education about multimodal preprocessing, classifier comparison, evaluation limitations, and responsible documentation.
+- Technical review of multimodal preprocessing, classifier comparison, evaluation limitations, and responsible machine-learning documentation.
 - Reproducibility investigation by users who independently obtain authorised dataset access.
 
 ## Prohibited uses
