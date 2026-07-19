@@ -1,9 +1,23 @@
-# Operating system and notebook state
-.DS_Store
+# Participant-level datasets
+data/*
+!data/.gitkeep
+!data/README.md
+
+processed_data/*
+!processed_data/.gitkeep
+!processed_data/README.md
+
+final_data/*
+!final_data/.gitkeep
+!final_data/README.md
+
+# Notebook-generated local state
 .ipynb_checkpoints/
 **/.ipynb_checkpoints/
+catboost_info/
+notebooks/catboost_info/
 
-# Python caches and local tooling
+# Python
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -11,7 +25,7 @@ __pycache__/
 .ruff_cache/
 .cache/
 
-# Local environments
+# Environments
 .venv/
 venv/
 env/
@@ -21,34 +35,40 @@ ENV/
 # Credentials and local configuration
 .env
 .env.*
-*.pem
-*.key
+kaggle.json
 credentials.json
 secrets.json
+*service-account*.json
+local.properties
+*.pem
+*.key
+*.p12
+*.pfx
 
-# Participant-level and derived datasets
-data/*
-processed_data/*
-final_data/*
+# Experiment and model artifacts
+wandb/
+mlruns/
+.dvc/cache/
+*.pkl
+*.pickle
+*.joblib
+*.cbm
+*.onnx
+*.pt
+*.h5
+*.tfevents*
 
-!data/.gitkeep
-!processed_data/.gitkeep
-!final_data/.gitkeep
-
-!data/README.md
-!processed_data/README.md
-!final_data/README.md
-
-# Generated model and training state
-notebooks/catboost_info/
-catboost_info/
+# Generated exports and logs
 *.log
 *.out
-*.tfevents*
+*.tmp
 *.tsv
+*.html
+*.pdf
 tmp/
 temp/
-*.tmp
+.DS_Store
+Thumbs.db
 
 # Editors and local metadata
 .vscode/
@@ -65,12 +85,19 @@ backups/
 *.bak
 *.backup
 
-# Private and local-only reports
-Codex_Reports/
+# Internal audit and task reports
+docs/reports/
 reports/private/
 private_reports/
 prompts/
 tasks/
+*audit-report*.md
+*cleanup-report*.md
+*readiness-audit*.md
+*publishing-report*.md
+*validation-report*.md
+*security-report*.md
+*task-report*.md
 
 # Legacy local documentation
 README.txt
