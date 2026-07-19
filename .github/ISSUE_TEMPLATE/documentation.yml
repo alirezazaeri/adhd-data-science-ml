@@ -1,0 +1,39 @@
+name: Documentation improvement
+description: Suggest a public-documentation correction or clarification.
+title: "[Docs]: "
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Do not attach participant records, competition data, restricted
+        data-dictionary content, credentials, or sensitive screenshots.
+  - type: input
+    id: location
+    attributes:
+      label: Documentation location
+      description: Link to or name the public file and section.
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What needs improvement?
+      description: Explain the ambiguity, error, or missing context.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed wording or structure
+      description: Keep medical, causal, fairness, and data-access claims within the documented boundaries.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: This request contains no participant data, restricted dataset content, credentials, or sensitive local information.
+          required: true
+        - label: This request does not ask to modify the preserved notebooks or their outputs.
+          required: true

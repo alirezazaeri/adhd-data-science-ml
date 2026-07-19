@@ -1,0 +1,49 @@
+name: Bug report
+description: Report a reproducible problem without including participant data or secrets.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Do not attach participant records, competition data, credentials,
+        restricted content, sensitive screenshots, or personal local paths.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Describe the problem in non-sensitive terms.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: Use public files or clearly synthetic placeholders only.
+      placeholder: |
+        1. Open...
+        2. Run...
+        3. Observe...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include relevant software details, but omit usernames and local paths.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: I have not included participant data, restricted dataset content, credentials, or sensitive local information.
+          required: true
+        - label: I did not execute or modify the preserved notebooks to prepare this report.
+          required: true
