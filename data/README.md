@@ -1,6 +1,6 @@
 # Local source data
 
-Dataset files are not distributed with this repository. Obtain the WiDS Datathon 2025 Global Challenge dataset independently, follow the official provider and competition terms, and preserve these filenames:
+Dataset files are not distributed with this repository. Obtain **WiDS Datathon 2025** independently from the official [Kaggle competition](https://www.kaggle.com/competitions/widsdatathon2025/) and [data page](https://www.kaggle.com/competitions/widsdatathon2025/data). Access requires a Kaggle account and acceptance of the competition rules. Use the updated `TRAIN_NEW` training materials where presented and preserve these filenames:
 
 ```text
 data/
@@ -10,11 +10,4 @@ data/
 └── METADATA_B.xlsx
 ```
 
-Official access and background:
-
-- [Kaggle competition](https://www.kaggle.com/competitions/widsdatathon2025/)
-- [WiDS challenge overview](https://www.widsworldwide.org/get-inspired/blog/8th-annual-wids-datathon-challenges-unraveling-the-mysteries-of-the-female-brain/)
-- [Healthy Brain Network](https://childmind.org/science/global-open-science/healthy-brain-network/)
-
-Do not commit participant-level files.
-
+No mirror, archive, sample rows, participant extracts, or restricted data-dictionary content is provided. Do not commit participant-level files. Cite the dataset as **WiDS Datathon 2025** and comply with the provider's terms. See [Dataset setup](../docs/DATASET_SETUP.md) for the complete local boundary.
