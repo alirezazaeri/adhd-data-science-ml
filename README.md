@@ -312,8 +312,8 @@ This project was developed by Alireza Zaeri and Fatemeh Sabourinia.
 - Source initiative: [Healthy Brain Network](https://childmind.org/science/global-open-science/healthy-brain-network/)
 - Source organization: Child Mind Institute
 
-The dataset and competition materials remain subject to their original terms and are not covered by any future code license for this repository.
+The dataset and competition materials remain subject to their original terms and are not covered by the repository's MIT License.
 
 ## License status
 
-License information will be added after final authorship and third-party terms review.
+Original source code and repository documentation are licensed under the [MIT License](LICENSE). The WiDS Datathon 2025 dataset, Healthy Brain Network data, competition materials, third-party libraries, trademarks, and other upstream materials remain subject to their original terms and are not relicensed by this repository.
