@@ -21,10 +21,14 @@ The two tracked notebooks preserve owner-approved historical code, Markdown, met
 Before submitting a change, run:
 
 ```bash
+python -m unittest discover -s tests -v
 python scripts/validate_notebook_integrity.py
+python scripts/validate_dependency_declarations.py
 python scripts/validate_public_repository.py
 git diff --check
 ```
+
+See the [development workflow](docs/DEVELOPMENT.md) for dataset-free setup, validation order, and review checks.
 
 ## Public wording
 
