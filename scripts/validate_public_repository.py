@@ -61,12 +61,13 @@ PRIVATE_PATH_MARKERS = (
     re.compile(r"/Users/[^/\s]+/"),
     re.compile(r"[A-Za-z]:\\Users\\[^\\\s]+\\"),
 )
-PROCESS_MARKERS = (
-    "academic project",
-    "future repository",
+PROHIBITED_WORKFLOW_PHRASES = (
+    "private supervisor",
+    "coursework submission",
+    "university module submission",
+    "confidential local report",
+    "unpublished institutional material",
     "private preparation",
-    "repository preparation",
-    "student project",
 )
 MARKDOWN_LINK = re.compile(r"!?\[[^\]]*\]\((?P<target>[^)]+)\)")
 REQUIREMENT = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*(?:\[[A-Za-z0-9_,.-]+\])?(?:\s*[<>=!~].*)?$")
@@ -118,6 +119,31 @@ def clean_link_target(raw_target: str) -> str | None:
     return target or None
 
 
+def line_number(text: str, offset: int) -> int:
+    """Return the one-based line number containing a character offset."""
+    return text.count("\n", 0, offset) + 1
+
+
+def check_public_wording(relative: str, text: str) -> list[str]:
+    """Reject specific private workflow language without blocking public research prose."""
+    errors: list[str] = []
+    lowered = text.lower()
+
+    for phrase in PROHIBITED_WORKFLOW_PHRASES:
+        start = 0
+        while (offset := lowered.find(phrase, start)) != -1:
+            errors.append(
+                f"Prohibited workflow wording in {relative}:{line_number(text, offset)}: {phrase!r}"
+            )
+            start = offset + len(phrase)
+
+    for pattern in PRIVATE_PATH_MARKERS:
+        for match in pattern.finditer(text):
+            errors.append(f"Personal absolute path in {relative}:{line_number(text, match.start())}")
+
+    return errors
+
+
 def check_markdown(files: list[str]) -> list[str]:
     errors: list[str] = []
     for relative in files:
@@ -125,14 +151,7 @@ def check_markdown(files: list[str]) -> list[str]:
             continue
         path = ROOT / relative
         text = path.read_text(encoding="utf-8")
-        lowered = text.lower()
-
-        for marker in PROCESS_MARKERS:
-            if marker in lowered:
-                errors.append(f"Private or academic workflow wording in: {relative}")
-        for pattern in PRIVATE_PATH_MARKERS:
-            if pattern.search(text):
-                errors.append(f"Personal absolute path in: {relative}")
+        errors.extend(check_public_wording(relative, text))
 
         for match in MARKDOWN_LINK.finditer(text):
             target = clean_link_target(match.group("target"))

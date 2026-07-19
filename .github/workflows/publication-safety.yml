@@ -26,6 +26,9 @@ jobs:
       - name: Check standalone Python syntax
         run: python -m compileall -q scripts
 
+      - name: Run validator regression tests
+        run: python -m unittest discover -s tests -v
+
       - name: Validate notebook JSON and approved hashes
         run: python scripts/validate_notebook_integrity.py
 
