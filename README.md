@@ -221,7 +221,7 @@ Notebook metadata records Python 3.12.7. Exact package versions were not preserv
 
 ## Local setup
 
-1. Clone the future repository.
+1. Clone the repository.
 2. Create and activate a virtual environment:
 
    ```bash
